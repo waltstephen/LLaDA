@@ -1,0 +1,27 @@
+/.claude
+/checkpoints_meanflow_llm_openorca
+/lightning_logs
+/OpenOrca
+/swanlog
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store

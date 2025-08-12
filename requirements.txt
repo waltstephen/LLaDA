@@ -1,0 +1,12 @@
+--extra-index-url https://download.pytorch.org/whl/cu121
+torch==2.4.1+cu121
+transformers==4.38.2
+numpy>=1.26
+gradio
+safetensors>=0.4.2
+einops>=0.7.0
+pytorch-lightning>=2.3.0
+accelerate>=0.28.0
+datasets>=2.18.0
+pyarrow>=14.0.0
+swanlab>=0.6.8
