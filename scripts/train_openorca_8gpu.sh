@@ -2,12 +2,12 @@
 set -euo pipefail
 
 # 数据与超参
-DATA="/home/wangkz/yijia/LLaDA/OpenOrca/1M-GPT4-Augmented.parquet"
-MODEL="~/.cache/huggingface/hub/models--GSAI-ML--LLaDA-8B-Instruct"
-OUT_DIR="/home/wangkz/yijia/LLaDA/checkpoints_meanflow_llm_openorca"
+DATA="/home/jusheng/yijia/LLaDA/Pretrained/data/OpenOrca/1M-GPT4-Augmented.parquet"
+MODEL="/home/jusheng/yijia/LLaDA/Pretrained/model/LLaDA-8B-Instruct"
+OUT_DIR="/home/jusheng/yijia/LLaDA/checkpoints_meanflow_llm_openorca"
 BATCH_SIZE=${BATCH_SIZE:-1}          # 每卡 batch size
 MAX_LEN=${MAX_LEN:-2048}
-STEPS=${STEPS:-20000}
+STEPS=${STEPS:-10000}
 PROMPT_LEN=${PROMPT_LEN:-16}
 NUM_WORKERS=${NUM_WORKERS:-2}
 MAX_EPOCHS=${MAX_EPOCHS:--1}
@@ -19,12 +19,12 @@ export TOKENIZERS_PARALLELISM=false
 export HF_DATASETS_TRUST_REMOTE_CODE=true
 export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-0,1,2,3,4,5,6,7}
 
-cd /home/wangkz/yijia/LLaDA
+cd /home/jusheng/yijia/LLaDA
 
-export CUDA_VISIBLE_DEVICES=0,1,2,3
+export CUDA_VISIBLE_DEVICES=5,6
 
 # 通过 torchrun 启动 8 卡 DDP 训练
-torchrun --nproc_per_node=4 --master_port=${MASTER_PORT:-29513} \
+torchrun --nproc_per_node=2 --master_port=${MASTER_PORT:-29513} \
   -m trainers.train_openorca_meanflow \
   --parquet "$DATA" \
   --model "$MODEL" \

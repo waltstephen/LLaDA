@@ -3,6 +3,7 @@
 /lightning_logs
 /OpenOrca
 /swanlog
+/Pretrained
 
 # Python cache
 __pycache__/
@@ -22,6 +23,7 @@ ENV/
 .idea/
 *.swp
 *.swo
+
 
 # OS generated files
 .DS_Store

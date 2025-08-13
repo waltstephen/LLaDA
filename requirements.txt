@@ -1,7 +1,7 @@
 --extra-index-url https://download.pytorch.org/whl/cu121
-torch==2.4.1+cu121
-transformers==4.38.2
-numpy>=1.26
+# torch==2.4.1+cu121
+# transformers==4.38.2
+# numpy>=1.26
 gradio
 safetensors>=0.4.2
 einops>=0.7.0
